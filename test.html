@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><title>JSONP test</title></head>
+<body><h3>JSONP test</h3><pre id="out">testing...</pre>
+<script>
+var GAS="https://script.google.com/macros/s/AKfycbxwh6DVQSTEfZcbybIZR9ENaXyRMpTHk2fKcENRotPIFu6oQAEkhJFdmd11o0TONKtCGw/exec";
+window.show=function(t){document.getElementById("out").textContent=t;};
+window.ok=function(d){show("OK classrooms="+(d.classrooms||[]).length);};
+var s=document.createElement("script");
+s.src=GAS+"?action=jsonp&callback=ok";
+s.onerror=function(){show("NG script error");};
+document.head.appendChild(s);
+</script>
+</body></html>
